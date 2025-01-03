@@ -9,13 +9,15 @@
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f7f9fa; /* Fundo branco azulado */
+            background-color: #f7f9fa;
             color: #444;
         }
         header {
-            background-color: #5085a5; /* Azul suave */
+            background-image: url('URL_DA_IMAGEM_DE_FUNDO'); /* Adicione o link da imagem de fundo */
+            background-size: cover;
+            background-position: center;
             color: #fff;
-            padding: 20px;
+            padding: 40px 20px;
             text-align: center;
         }
         .logo-container img {
@@ -26,23 +28,18 @@
         .player-container {
             margin: 30px auto;
             max-width: 600px;
-            background: #fff; /* Fundo branco */
+            background: #fff;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             padding: 30px;
             border-radius: 12px;
             text-align: center;
-            border: 2px solid #f4d35e; /* Amarelo suave */
+            border: 2px solid #f4d35e;
         }
         .player-container h2 {
-            color: #f4a261; /* Amarelo mais forte */
-        }
-        .song-info {
-            margin: 20px 0;
-            font-size: 1.1em;
-            color: #5085a5;
+            color: #f4a261;
         }
         .play-button {
-            background-color: #81b29a; /* Verde oliva */
+            background-color: #81b29a;
             color: white;
             border: none;
             border-radius: 50%;
@@ -56,7 +53,7 @@
         }
         .play-button:hover {
             transform: scale(1.1);
-            background-color: #6d9b85; /* Verde oliva mais escuro */
+            background-color: #6d9b85;
         }
         footer {
             margin-top: 30px;
@@ -71,15 +68,11 @@
     <header>
         <h1>Rádio Caminho da Salvação</h1>
         <div class="logo-container">
-            <img src="https://raw.githubusercontent.com/carlos46743/radio-caminho-da-salvacao/refs/heads/main/logo.jpg" alt="Logo da Rádio Caminho da Salvação">
+            <img src="URL_DA_LOGO_AQUI" alt="Logo da Rádio Caminho da Salvação">
         </div>
     </header>
     <div class="player-container">
         <h2>Ouça Agora</h2>
-        <p class="song-info">
-            <strong>Artista:</strong> <span id="artist-name">Carregando...</span><br>
-            <strong>Música:</strong> <span id="song-title">Carregando...</span>
-        </p>
         <button class="play-button" id="play-button" onclick="toggleAudio()">▶</button>
         <audio id="radio-player">
             <source src="https://stream.zeno.fm/akboutd0hehuv" type="audio/mpeg">
@@ -94,7 +87,6 @@
         const player = document.getElementById('radio-player');
         const playButton = document.getElementById('play-button');
 
-        // Alternar entre play e pause
         function toggleAudio() {
             if (player.paused) {
                 player.play();

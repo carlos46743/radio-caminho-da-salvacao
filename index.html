@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rádio Caminho da Salvação</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+        header {
+            background-color: #1d3557; /* Azul escuro */
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+        .logo-container img {
+            width: 120px;
+            height: auto;
+            margin-top: 10px;
+        }
+        .player-container {
+            margin: 30px auto;
+            max-width: 600px;
+            background: #fff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .player-container h2 {
+            color: #1d3557;
+        }
+        .play-button {
+            background-color: #457b9d;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 100px
+            height: 100px;
+            font-size: 30px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            margin-top: 20px;
+        }
+        .play-button:hover {
+            transform: scale(1.1);
+        }
+        .description {
+            margin: 20px 0;
+            font-size: 1em;
+            color: #666;
+        }
+        footer {
+            margin-top: 30px;
+            background-color: #1d3557;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Rádio Caminho da Salvação</h1>
+        <div class="logo-container">
+            <img src="https://zeno.fm/_ipx/q_85&fit_cover&s_144x144/https://images.zeno.fm/x1p7gtxI1td2uu8_df2caLSsvWEYf0JBxerIMWbHDaI/rs:fill:288:288/g:ce:0:0/aHR0cHM6Ly9wcm94eS56ZW5vLmZtL2NvbnRlbnQvc3RhdGlvbnMvNmFmYzdkNDEtZDJjOS00YTQ3LWE3NGMtYmUwOGQ3ZGIwODVlL2ltYWdlLz91PTE3MzU4NTk0NzQwMDA.webp" alt="Logo da Rádio Caminho da Salvação">
+        </div>
+    </header>
+    <div class="player-container">
+        <h2>Ouça Agora</h2>
+        <p class="description">Conecte-se com Deus por meio da nossa programação.</p>
+        <button class="play-button" onclick="toggleAudio()">▶</button>
+        <audio id="radio-player">
+            <source src="https://stream.zeno.fm/akboutd0hehuv" type="audio/mpeg">
+            Seu navegador não suporta o elemento de áudio.
+        </audio>
+    </div>
+    <footer>
+        <p>© 2025 - Rádio Caminho da Salvação | Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const player = document.getElementById('radio-player');
+        const playButton = document.querySelector('.play-button');
+
+        function toggleAudio() {
+            if (player.paused) {
+                player.play();
+                playButton.textContent = '⏸'; // Altera para pausa
+            } else {
+                player.pause();
+                playButton.textContent = '▶'; // Altera para play
+            }
+        }
+    </script>
+</body>
+</html>
+

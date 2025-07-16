@@ -4,101 +4,304 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rádio Caminho da Salvação</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --primary-dark: #1d3557;
+            --primary-light: #457b9d;
+            --accent-color: #a8dadc;
+            --text-color: #333;
+            --light-bg: #f4f7f6;
+            --white: #fff;
+            --shadow-color: rgba(0, 0, 0, 0.15);
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
+            font-family: 'Open Sans', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f7f6;
-            color: #333;
+            background-color: var(--light-bg);
+            color: var(--text-color);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
+
         header {
-            background-color: #1d3557; /* Azul escuro */
-            color: #fff;
-            padding: 20px;
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 25px 20px;
             text-align: center;
+            box-shadow: 0 2px 8px var(--shadow-color);
         }
+
+        header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin: 0;
+            font-size: 2.5em;
+            letter-spacing: 1px;
+        }
+
         .logo-container img {
-            width: 120px;
+            width: 150px;
             height: auto;
-            margin-top: 10px;
+            margin-top: 15px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px var(--shadow-color);
         }
+
         .player-container {
-            margin: 30px auto;
-            max-width: 600px;
-            background: #fff;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            padding: 30px;
-            border-radius: 12px;
+            flex-grow: 1;
+            margin: 40px auto;
+            max-width: 650px;
+            background: var(--white);
+            box-shadow: 0 8px 20px var(--shadow-color);
+            padding: 40px;
+            border-radius: 15px;
             text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
+
         .player-container h2 {
-            color: #1d3557;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--primary-dark);
+            margin-top: 0;
+            margin-bottom: 15px;
+            font-size: 2em;
+            font-weight: 600;
         }
+
+        .description {
+            margin-bottom: 30px;
+            font-size: 1.1em;
+            color: #555;
+            line-height: 1.6;
+            max-width: 400px;
+        }
+
+        .player-controls {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+        }
+
         .play-button {
-            background-color: #457b9d;
-            color: white;
+            background-color: var(--primary-light);
+            color: var(--white);
             border: none;
             border-radius: 50%;
-            width: 100px
-            height: 100px;
-            font-size: 30px;
+            width: 110px;
+            height: 110px;
+            font-size: 40px;
             cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            transition: transform 0.2s;
-            margin-top: 20px;
+            box-shadow: 0 6px 12px var(--shadow-color);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            outline: none;
         }
+
         .play-button:hover {
-            transform: scale(1.1);
+            transform: scale(1.08);
+            background-color: #3b6c8d; /* Slightly darker on hover */
         }
-        .description {
-            margin: 20px 0;
-            font-size: 1em;
-            color: #666;
+
+        .volume-container {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            width: 80%;
+            max-width: 300px;
         }
+
+        .volume-container i {
+            font-size: 1.5em;
+            color: var(--primary-light);
+        }
+
+        .volume-slider {
+            -webkit-appearance: none;
+            width: 100%;
+            height: 8px;
+            background: #ddd;
+            outline: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        .volume-slider::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            cursor: grab;
+            box-shadow: 0 2px 4px var(--shadow-color);
+            transition: background 0.2s ease;
+        }
+
+        .volume-slider::-webkit-slider-thumb:active {
+            cursor: grabbing;
+        }
+
+        .volume-slider::-moz-range-thumb {
+            width: 20px;
+            height: 20px;
+            background: var(--primary-light);
+            border-radius: 50%;
+            cursor: grab;
+            box-shadow: 0 2px 4px var(--shadow-color);
+            transition: background 0.2s ease;
+        }
+
+        .volume-slider::-moz-range-thumb:active {
+            cursor: grabbing;
+        }
+
         footer {
-            margin-top: 30px;
-            background-color: #1d3557;
-            color: #fff;
-            padding: 10px 0;
+            margin-top: auto; /* Push footer to the bottom */
+            background-color: var(--primary-dark);
+            color: var(--white);
+            padding: 15px 0;
             text-align: center;
+            font-size: 0.9em;
+            box-shadow: 0 -2px 8px var(--shadow-color);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            .logo-container img {
+                width: 120px;
+            }
+            .player-container {
+                margin: 25px auto;
+                padding: 30px;
+                max-width: 90%;
+            }
+            .player-container h2 {
+                font-size: 1.8em;
+            }
+            .description {
+                font-size: 1em;
+            }
+            .play-button {
+                width: 90px;
+                height: 90px;
+                font-size: 35px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            .logo-container img {
+                width: 100px;
+            }
+            .player-container {
+                margin: 20px auto;
+                padding: 25px;
+            }
+            .player-container h2 {
+                font-size: 1.6em;
+            }
+            .play-button {
+                width: 80px;
+                height: 80px;
+                font-size: 30px;
+            }
+            .volume-container {
+                width: 90%;
+            }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <header>
         <h1>Rádio Caminho da Salvação</h1>
         <div class="logo-container">
-            <img src="https://github.com/carlos46743/radio-caminho-da-salvacao/blob/main/logo.jpg" alt="Logo da Rádio Caminho da Salvação">
+            <img src="https://github.com/carlos46743/radio-caminho-da-salvacao/blob/main/logo.jpg?raw=true" alt="Logo da Rádio Caminho da Salvação">
         </div>
     </header>
+
     <div class="player-container">
         <h2>Ouça Agora</h2>
-        <p class="description">Conecte-se com Deus por meio da nossa programação.</p>
-        <button class="play-button" onclick="toggleAudio()">▶</button>
-        <audio id="radio-player">
-            <source src="https://stream.zeno.fm/akboutd0hehuv" type="audio/mpeg">
-            Seu navegador não suporta o elemento de áudio.
-        </audio>
+        <p class="description">Conecte-se com Deus por meio da nossa programação de fé, louvor e reflexão.</p>
+        
+        <div class="player-controls">
+            <button class="play-button" onclick="toggleAudio()">▶</button>
+            <audio id="radio-player">
+                <source src="https://stream.zeno.fm/akboutd0hehuv" type="audio/mpeg">
+                Seu navegador não suporta o elemento de áudio.
+            </audio>
+
+            <div class="volume-container">
+                <i class="fas fa-volume-down"></i>
+                <input type="range" id="volume-slider" class="volume-slider" min="0" max="1" step="0.01" value="0.7">
+                <i class="fas fa-volume-up"></i>
+            </div>
+        </div>
     </div>
+
     <footer>
-        <p>© 2025 - Rádio Caminho da Salvação | Todos os direitos reservados.</p>
+        <p>&copy; 2025 - Rádio Caminho da Salvação | Todos os direitos reservados.</p>
     </footer>
 
     <script>
         const player = document.getElementById('radio-player');
         const playButton = document.querySelector('.play-button');
+        const volumeSlider = document.getElementById('volume-slider');
+
+        // Define o volume inicial
+        player.volume = volumeSlider.value;
 
         function toggleAudio() {
             if (player.paused) {
                 player.play();
-                playButton.textContent = '⏸'; // Altera para pausa
+                playButton.innerHTML = '&#10074;&#10074;'; // Ícone de pausa
             } else {
                 player.pause();
-                playButton.textContent = '▶'; // Altera para play
+                playButton.innerHTML = '&#9658;'; // Ícone de play
             }
         }
+
+        // Listener para o slider de volume
+        volumeSlider.addEventListener('input', () => {
+            player.volume = volumeSlider.value;
+        });
+
+        // Adiciona um listener para quando a rádio estiver carregando ou em erro
+        player.addEventListener('playing', () => {
+            playButton.innerHTML = '&#10074;&#10074;';
+        });
+
+        player.addEventListener('pause', () => {
+            playButton.innerHTML = '&#9658;';
+        });
+
+        player.addEventListener('error', () => {
+            playButton.innerHTML = 'Erro!';
+            alert('Não foi possível carregar o stream da rádio. Por favor, tente novamente mais tarde.');
+        });
+
+        // Opcional: Adicionar mensagem de carregamento
+        player.addEventListener('waiting', () => {
+            playButton.innerHTML = 'Carregando...';
+        });
     </script>
 </body>
 </html>
-
